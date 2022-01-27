@@ -1,5 +1,4 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 from notes.forms import AddNoteForm
 from notes.models import Note
 
@@ -13,5 +12,4 @@ def index(request):
             return redirect("index")
     else:
         form = AddNoteForm()
-        notes = Note.objects.all()
     return render(request, "note_list.html", {"notes": notes, "form": form})
